@@ -1,45 +1,39 @@
-import java.util.Scanner;
-
 public class ejercicio_3 {
-        public static void main(String[] args) {
-            Scanner sc = new Scanner(System.in);
-            int [][] matriz;
-            int[][] matriz_t;
+    public static void main(String[] args) {
+        int[][] matrizOriginal = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+    int[][] matrizTranspuesta = calcularTranspuesta(matrizOriginal);
 
-            System.out.println("Ingrese la cantidad de filas: ");
-            int f = sc.nextInt();
+        System.out.println("Matriz Original:");
+    mostrarMatriz(matrizOriginal);
 
-            System.out.println("Ingrese la cantidad de columnas: ");
-            int c = sc.nextInt();
-            matriz = new int[f][c];
-            matriz_t = new int [c][f];
+        System.out.println("\nMatriz Transpuesta:");
+    mostrarMatriz(matrizTranspuesta);
+}
 
-            for (int i=0 ; i<f ; i++){
-                for (int j=0 ; j<c ; j++){
-                    System.out.println("Matriz ["+i+"]["+j+"]= ");
-                    matriz[i][j]= sc.nextInt();
-                }
-            }
-            for (int i=0 ; i< matriz_t.length ; i++){
-                for (int j=0 ; j< matriz_t.length ; j++){
-                    matriz_t[i][j] = matriz [j][i];
-                }
-            }
-            System.out.println("Matriz: ");
-            for (int i=0 ; i<f ; i++){
-                for (int j=0 ; j<c ; j++){
-                    System.out.print("| ["+matriz[i][j]+"] |");
-                }
-                System.out.println(" ");
-            }
-            System.out.println("Matriz Transpuesta: ");
-            for (int i=0 ; i< matriz_t.length ; i++){
-                for (int j=0 ; j< matriz_t.length ; j++){
-                    System.out.print("| ["+matriz_t[i][j]+"] |");
-                }
-                System.out.println(" ");
-            }
+    public static int[][] calcularTranspuesta(int[][] matriz) {
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+        int[][] transpuesta = new int[columnas][filas];
 
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                transpuesta[j][i] = matriz[i][j];
+            }
         }
+
+        return transpuesta;
     }
 
+    public static void mostrarMatriz(int[][] matriz) {
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print(matriz[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}

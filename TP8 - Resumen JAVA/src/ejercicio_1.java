@@ -39,7 +39,7 @@ public class ejercicio_1 {
 
         }
         
-    private static int[][] sumaArrays(int[][] matrizA, int[][] matrizB, int[][] matrizC, filas, columnas) {
+    private static int[][] sumaArrays(int[][] matrizA, int[][] matrizB, int[][] matrizC, int filas, int columnas) {
 
         for (int i=0 ; i<filas ; i++){
             for (int j=0 ; j<columnas ; j++){
